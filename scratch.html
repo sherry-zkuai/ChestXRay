@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+
+<div class="head-part">
+    <div class="head-word">
+        <div class="header">
+            <p>Pneumonia Detector <span>Demo</span></p>
+        </div>
+        <divss class="description">
+            <p>An easy-used, reliable tool to help identify whether the lung
+                has pneumonia, with simply one uploaded chest x-ray.</p>
+        </divss>
+    </div>
+
+
+</div>
+
+<div class="main-part">
+        <div>
+            <p>Click to upload chest x-ray result</p>
+        </div>
+        <div>
+            <form action="ChestXRay_1.ipynb">
+                <label id="upload">
+                    <input name="pic" type="file" id="xray"/>
+                    <img src="upload_1.png" alt="upload sign">
+                </label>
+            </form>
+
+            <div class="img-preview">
+                <img id="preview" src="" alt="preview image" />
+                <div id="check" >Check Pneumonia</div>
+            </div>
+
+        </div>
+
+
+</div>
+
+
+<script>
+
+    xray.onchange = function(event) {
+        var preview = document.getElementById("preview");
+        // .src = e.target.result;
+        preview.src = URL.createObjectURL(event.target.files[0]);
+        document.getElementById("upload").style.display = "none";
+        preview.style.display = "block";
+        var check = document.getElementById("check");
+        check.style.display = "block";
+    }
+</script>
+
+
+</body>
+</html>
